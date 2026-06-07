@@ -220,10 +220,10 @@ RegisterHotstrings() {
     registeredTriggers := Map()
 
     HotIfWinActive "ahk_exe WindowsTerminal.exe"
-    Hotstring(":B0*:;;", ShowPromptMenuFromHotstring, "On")
-    Hotstring(":*:;c", ClearCurrentLine, "On")
-    Hotstring(":*:;n", InsertSoftNewline, "On")
-    Hotstring(":*:;h", ShowControlHelp, "On")
+    Hotstring(":ZB0*:;;", ShowPromptMenuFromHotstring, "On")
+    Hotstring(":Z*:;c", ClearCurrentLine, "On")
+    Hotstring(":Z*:;n", InsertSoftNewline, "On")
+    Hotstring(":Z*:;h", ShowControlHelp, "On")
     Hotkey("~Enter", ResetLineState, "On")
     Hotkey("~NumpadEnter", ResetLineState, "On")
     Hotkey("~^u", ResetLineState, "On")
@@ -237,7 +237,7 @@ RegisterHotstrings() {
         }
 
         try {
-            Hotstring(":*:" trigger, UseTemplateFromHotstring.Bind(tmpl["section"]), "On")
+            Hotstring(":Z*:" trigger, UseTemplateFromHotstring.Bind(tmpl["section"]), "On")
             registeredTriggers[trigger] := true
         } catch as err {
             errors .= "Could not register " trigger " for " tmpl["label"] ": " err.Message "`n"
